@@ -28,3 +28,15 @@ describe('User case 2', () => {
         expect(secondGuessResult).toBe(higerMessage)
     })
 })
+
+describe('User case 3', () => {
+    test('when third move is incorrect, returns You lose', () => {
+        const randomNumberGenerator = makeFixedRandomNumberGenerator(4)
+        const guessingNumberGame = makeGuessingNumberGame(randomNumberGenerator)
+        guessingNumberGame.guessNumber(10)
+        guessingNumberGame.guessNumber(3)
+        const thirdGuessResult = guessingNumberGame.guessNumber(5)
+        const loseMessage = "You lose"
+        expect(thirdGuessResult).toBe(loseMessage)
+    })
+})
