@@ -5,16 +5,13 @@ function makeGuessingNumberGame(randomNumberGenerator) {
     let triesNumber = 0
     function guessNumber(number) {
         if(target === number) return "Correct you won"
-        if(triesNumber < 2) return handleIncorrectIntermediateGuesses(number)
-        if(triesNumber >= 2) return handleIncorrectLastGuess(number)
+        return handleIncorrectGuesses(number)
     }
-    function handleIncorrectIntermediateGuesses(number) {
+    function handleIncorrectGuesses(number) {
         triesNumber++
+        if(triesNumber > 2) return "You lose"
         if(target < number) return "The number is lower"
         return "The number is higer"
-    }
-    function handleIncorrectLastGuess(number) {
-        return "You lose"
     }
     return {
         guessNumber
