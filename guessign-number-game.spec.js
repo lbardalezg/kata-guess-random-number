@@ -19,4 +19,12 @@ describe('User case 2', () => {
         const lowerMessage = "The number is lower"
         expect(firstGuessResult).toBe(lowerMessage)
     })
+    test('second move has a lower number', () => {
+        const randomNumberGenerator = makeFixedRandomNumberGenerator(5)
+        const guessingNumberGame = makeGuessingNumberGame(randomNumberGenerator)
+        guessingNumberGame.guessNumber(10)
+        const secondGuessResult = guessingNumberGame.guessNumber(3)
+        const higerMessage = "The number is higer"
+        expect(secondGuessResult).toBe(higerMessage)
+    })
 })
